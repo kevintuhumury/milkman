@@ -1,5 +1,10 @@
 # Milkman
 
+[![Build Status](https://travis-ci.org/kevintuhumury/milkman.png?branch=master)](https://travis-ci.org/kevintuhumury/milkman)
+[![Dependency Status](https://gemnasium.com/kevintuhumury/milkman.png)](https://gemnasium.com/kevintuhumury/milkman)
+[![Code Climate](https://codeclimate.com/github/kevintuhumury/milkman.png)](https://codeclimate.com/github/kevintuhumury/milkman)
+[![Coverage Status](https://coveralls.io/repos/kevintuhumury/milkman/badge.png?branch=master)](https://coveralls.io/r/kevintuhumury/milkman)
+
 TODO: Write a gem description
 
 ## Installation
