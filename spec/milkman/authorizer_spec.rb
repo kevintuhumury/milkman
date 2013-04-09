@@ -10,7 +10,7 @@ module Milkman
     context "#initialize" do
 
       it "saves a references to the specified options" do
-        hash = { api_key: "<api_key>", shared_secret: "<shared_secret>", format: "json", perms: "read" }
+        hash = { api_key: "<api_key>", shared_secret: "<shared_secret>", format: "json", perms: "delete" }
 
         client = described_class.new(options)
         client.options.should eq hash

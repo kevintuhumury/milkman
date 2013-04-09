@@ -56,7 +56,7 @@ module Milkman
     context "#default_options" do
 
       it "knows its default API permissions" do
-        klass.default_options[:perms].should eq "read"
+        klass.default_options[:perms].should eq "delete"
       end
 
       it "knows its default API response format" do

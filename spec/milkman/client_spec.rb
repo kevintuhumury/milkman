@@ -10,7 +10,7 @@ module Milkman
     context "#initialize" do
 
       it "saves a references to the specified options" do
-        hash = { api_key: "foo", shared_secret: "bar", format: "json", perms: "read" }
+        hash = { api_key: "foo", shared_secret: "bar", format: "json", perms: "delete" }
 
         client = described_class.new(options)
         client.options.should eq hash
@@ -62,7 +62,7 @@ module Milkman
     context "#get" do
 
       it "requests a call to the RTM API with the specified method" do
-        Milkman::Request.should_receive(:call).with "http://api.rememberthemilk.com/services/rest/?api_key=foo&shared_secret=bar&perms=read&format=json&method=method&api_sig=f902d7ae58761bed6bbb90a20ffa849f"
+        Milkman::Request.should_receive(:call).with "http://api.rememberthemilk.com/services/rest/?api_key=foo&shared_secret=bar&perms=delete&format=json&method=method&api_sig=57c35d820267ab89717e291d619860d2"
 
         client = described_class.new(options)
         client.get "method"
