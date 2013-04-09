@@ -2,6 +2,7 @@ require "i18n"
 
 module Milkman
 
+  AUTH_URL = "http://www.rememberthemilk.com/services/auth/"
   BASE_URL = "http://api.rememberthemilk.com/services/rest/"
 
   I18n.load_path += Dir.glob(File.join(File.dirname(__FILE__), "locales/*.yml"))
