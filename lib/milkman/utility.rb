@@ -20,7 +20,7 @@ module Milkman
     end
 
     def default_options
-      { perms: "read", format: "json" }
+      { perms: "delete", format: "json" }
     end
 
   end
