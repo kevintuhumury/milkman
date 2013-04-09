@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Authorize Milkman
 
-To use Milkman you'll need to authorize the gem with Remember The Milk. In order to do that, you'll need to apply for an API key and shared secret. When that's done, you'll need to run the `milkman` executable. Just follow the steps below.
+To use Milkman you'll need to authorize the gem with Remember The Milk. In order to do that, you'll need to apply for an API key and shared secret. When that's done, you'll need to run the `milkman` executable.
 
 ### Apply for an API key and shared secret
 
@@ -41,7 +41,7 @@ Something like the following will be shown to you:
 
     Once you've authorized Milkman, you'll receive a hash called 'frob' from Remember The Milk. The page from Remember The Milk will list something like the following: 'No callback URL specified for this API key. Your frob value is YOUR_FROB'. Copy and paste that YOUR_FROB value below and press <enter>:
 
-Copy the URL (as requested) and paste it in your browser. Next copy the frob from the Remember The Milk website, paste it in your shell and press <enter> as described above. Once you've done that, you'll receive the authentication token (auth token) from Remember The Milk:
+Copy the URL (as requested) and paste it in your browser. Next copy the frob from the Remember The Milk website, paste it in your shell and press enter. Once you've done that, you'll receive the authentication token (auth token) from Remember The Milk:
 
     USERNAME, you've successfully authorized Milkman with Remember The Milk. As you can see we've received your username and an authorization token. Both this auth token, your API key and shared secret should be saved for later use. You can either save them in a YAML file and load them in your application, include them in the Ruby script where you're using this gem or set them as environment variables. That's completely up to you.
 
@@ -51,7 +51,7 @@ Copy the URL (as requested) and paste it in your browser. Next copy the frob fro
 	    shared_secret: SHARED_SECRET
 	    auth_token:    AUTH_TOKEN
 
-Take note of the variables and save them, since you'll need them to use Milkman, which you're now able to.
+Take note of the variables and save them, since you'll need them to use Milkman.
 
 ## Using Milkman
 
@@ -67,11 +67,11 @@ That's it.
 
 ### Milking the cow, err... Calling our method
 
-Now, let's call our `rtm.tasks.getList` method. It's really as simple as the following:
+Now, let's call our `rtm.tasks.getList` method:
 
 	client.get "rtm.tasks.getList"
 	
-The above call will return every task you have. As can be seen on the [API page](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm) of the above method, there are a couple of optional parameters. `list_id`, `filter` and `last_sync` are the parameters listed for this method. These can be used as follows:
+The above call will return every task you have. As can be seen on the [API page](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm) of the above method, there are a couple of optional parameters, like `list_id`, `filter` and `last_sync`. These can be used as follows:
 
 	client.get "rtm.tasks.getList", { list_id: 1, filter: "some filter" }
 
