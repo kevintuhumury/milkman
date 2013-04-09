@@ -1,6 +1,10 @@
+require "i18n"
+
 module Milkman
 
   BASE_URL = "http://api.rememberthemilk.com/services/rest/"
+
+  I18n.load_path += Dir.glob(File.join(File.dirname(__FILE__), "locales/*.yml"))
 
   class NoMilkError          < StandardError; end
   class InvalidResponseError < StandardError; end
