@@ -7,7 +7,7 @@ module Milkman
 
   I18n.load_path += Dir.glob(File.join(File.dirname(__FILE__), "locales/*.yml"))
 
-  class NoMilkError          < StandardError; end
+  class NoMilkError < StandardError; end
   class InvalidResponseError < StandardError; end
 
 end
