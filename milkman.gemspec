@@ -15,8 +15,10 @@ Gem::Specification.new do |gem|
 
   gem.files         = `git ls-files`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.executables   = ["milkman"]
   gem.require_paths = ["lib"]
 
+  gem.add_runtime_dependency "thor"
   gem.add_runtime_dependency "i18n"
   gem.add_runtime_dependency "httparty"
 

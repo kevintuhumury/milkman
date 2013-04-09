@@ -11,6 +11,8 @@ module Milkman
   class InvalidResponseError < StandardError; end
 
 end
+
+require "milkman/cli"
 require "milkman/utility"
 require "milkman/request"
 require "milkman/client"
