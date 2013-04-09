@@ -10,3 +10,4 @@ SimpleCov.start do
 end
 
 require "milkman"
+require "capture_stdout"

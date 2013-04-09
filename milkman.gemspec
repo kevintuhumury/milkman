@@ -24,5 +24,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "simplecov"
+  gem.add_development_dependency "capture_stdout"
   gem.add_development_dependency "coveralls"
 end
