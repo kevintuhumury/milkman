@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/kevintuhumury/milkman.png)](https://codeclimate.com/github/kevintuhumury/milkman)
 [![Coverage Status](https://coveralls.io/repos/kevintuhumury/milkman/badge.png?branch=master)](https://coveralls.io/r/kevintuhumury/milkman)
 
-This gem provides a Ruby wrapper around the Remember The Milk (RTM) API, using HTTParty. Milkman is a library to access the RTM API in an easy way. It maps all of the methods, which are described in the [official documentation](https://www.rememberthemilk.com/services/api/methods/). Whenever new methods are added to the RTM API, you'll be able to use them immediately through Milkman.
+This gem provides a Ruby wrapper around the [Remember The Milk](https://www.rememberthemilk.com) (RTM) API, using HTTParty. Milkman is a library to access the RTM API in an easy way. It maps all of the methods, which are described in the [official documentation](https://www.rememberthemilk.com/services/api/methods/). Whenever new methods are added to the RTM API, you'll be able to use them immediately through Milkman.
 
 ## Installation
 
@@ -41,7 +41,7 @@ Something like the following will be shown to you:
 
     Once you've authorized Milkman, you'll receive a hash called 'frob' from Remember The Milk. The page from Remember The Milk will list something like the following: 'No callback URL specified for this API key. Your frob value is YOUR_FROB'. Copy and paste that YOUR_FROB value below and press <enter>:
 
-Copy the URL (as requested), copy the frob, paste it and press <enter> as described above. Once you've done that, you'll receive the authentication token (or auth token) from Remember The Milk.
+Copy the URL (as requested) and paste it in your browser. Next copy the frob from the Remember The Milk website, paste it in your shell and press <enter> as described above. Once you've done that, you'll receive the authentication token (auth token) from Remember The Milk:
 
     USERNAME, you've successfully authorized Milkman with Remember The Milk. As you can see we've received your username and an authorization token. Both this auth token, your API key and shared secret should be saved for later use. You can either save them in a YAML file and load them in your application, include them in the Ruby script where you're using this gem or set them as environment variables. That's completely up to you.
 
@@ -53,10 +53,45 @@ Copy the URL (as requested), copy the frob, paste it and press <enter> as descri
 
 Take note of the variables and save them, since you'll need them to use Milkman, which you're now able to.
 
+## Using Milkman
+
+Using Milkman is easy. All you need to know is that all calls go through the `Milkman::Client` class. Specifically it's `get` method. Let's say you want to retrieve all your tasks from RTM. Well, there's a method for that and it's called: `rtm.tasks.getList`. More information about that method can be found [here](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm).
+
+### Create an instance of the Milkman client
+
+In order to retrieve the above information, we'll need an instance of the Milkman client. So let's create it:
+
+	client = Milkman::Client.new api_key: API_KEY, shared_secret: SHARED_SECRET, auth_token: AUTH_TOKEN
+	
+That's it.
+
+### Milking the cow, err... Calling our method
+
+Now, let's call our `rtm.tasks.getList` method. It's really as simple as the following:
+
+	client.get "rtm.tasks.getList"
+	
+The above call will return every task you have. As can be seen on the [API page](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm) of the above method, there are a couple of optional parameters. `list_id`, `filter` and `last_sync` are the parameters listed for this method. These can be used as follows:
+
+	client.get "rtm.tasks.getList", { list_id: 1, filter: "some filter" }
+
+### Response format
+
+Eventhough the API documentation shows the responses as XML, Milkman will return JSON as it's default response format.
+
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+You're very welcome to contribute to this gem. To do so, please follow these steps:
+
+1. Fork this project
+2. Clone your fork on your local machine
+3. Install the development dependencies with `bundle install`
+4. Create your feature branch with `git checkout -b my-new-feature`
+5. Run the specs with `rspec` and make sure everything is covered with RSpec
+6. Commit your changes `git commit -am 'Added new feature'`
+7. Push to your branch `git push origin my-new-feature`
+8. Create a new Pull Request
+
+## Copyright
+
+Copyright 2013 Kevin Tuhumury. Released under the MIT License.
