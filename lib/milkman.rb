@@ -14,4 +14,5 @@ end
 require "milkman/utility"
 require "milkman/request"
 require "milkman/client"
+require "milkman/authorizer"
 require "milkman/version"
