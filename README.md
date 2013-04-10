@@ -1,5 +1,6 @@
 # Milkman
 
+[![Gem Version](https://badge.fury.io/rb/milkman.png)](http://badge.fury.io/rb/milkman)
 [![Build Status](https://travis-ci.org/kevintuhumury/milkman.png?branch=master)](https://travis-ci.org/kevintuhumury/milkman)
 [![Dependency Status](https://gemnasium.com/kevintuhumury/milkman.png)](https://gemnasium.com/kevintuhumury/milkman)
 [![Code Climate](https://codeclimate.com/github/kevintuhumury/milkman.png)](https://codeclimate.com/github/kevintuhumury/milkman)
@@ -61,7 +62,9 @@ Using Milkman is easy. All you need to know is that all calls go through the `Mi
 
 In order to retrieve the above information, we'll need an instance of the Milkman client. So let's create it:
 
-	client = Milkman::Client.new api_key: API_KEY, shared_secret: SHARED_SECRET, auth_token: AUTH_TOKEN
+```ruby
+client = Milkman::Client.new api_key: API_KEY, shared_secret: SHARED_SECRET, auth_token: AUTH_TOKEN
+```
 	
 That's it.
 
@@ -69,11 +72,15 @@ That's it.
 
 Now, let's call our `rtm.tasks.getList` method:
 
-	client.get "rtm.tasks.getList"
+```ruby
+client.get "rtm.tasks.getList"
+```
 	
 The above call will return every task you have. As can be seen on the [API page](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm) of the above method, there are a couple of optional parameters, like `list_id`, `filter` and `last_sync`. These can be used as follows:
 
-	client.get "rtm.tasks.getList", { list_id: 1, filter: "some filter" }
+```ruby
+client.get "rtm.tasks.getList", { list_id: 1, filter: "some filter" }
+```
 
 ### Response format
 
