@@ -88,7 +88,7 @@ Eventhough the API documentation shows the responses as XML, Milkman will return
 
 ### Example usage of Milkman
 
-Milkman was actually created to power the [Remember The Milk Dashing widget](https://github.com/kevintuhumury/dashing-rememberthemilk). You can check out a [preview](https://github.com/kevintuhumury/dashing-rememberthemilk#preview) here.
+Milkman was actually created to power the [Remember The Milk Dashing widget](https://github.com/kevintuhumury/dashing-rememberthemilk). You can check out a preview [here](https://github.com/kevintuhumury/dashing-rememberthemilk#preview).
 
 ## Contributing
 
