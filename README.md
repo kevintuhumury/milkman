@@ -86,6 +86,10 @@ client.get "rtm.tasks.getList", { list_id: 1, filter: "some filter" }
 
 Eventhough the API documentation shows the responses as XML, Milkman will return JSON as it's default response format.
 
+### Example usage of Milkman
+
+Milkman was actually created to power the [Remember The Milk Dashing widget](https://github.com/kevintuhumury/dashing-rememberthemilk). You can check out a [preview](https://github.com/kevintuhumury/dashing-rememberthemilk#preview) here.
+
 ## Contributing
 
 You're very welcome to contribute to this gem. To do so, please follow these steps:
