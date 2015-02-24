@@ -24,7 +24,7 @@ module Milkman
     private
 
     def request
-      @response ||= self.class.get @url
+      @response ||= self.class.get @url, format: :json
     end
 
     def response

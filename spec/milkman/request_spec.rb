@@ -23,7 +23,7 @@ module Milkman
       end
 
       it "makes a call to the RTM API" do
-        described_class.should_receive(:get).with url
+        described_class.should_receive(:get).with url, format: :json
         described_class.call url
       end
 
