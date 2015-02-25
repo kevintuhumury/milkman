@@ -6,7 +6,7 @@ module Milkman
     let(:url) { "#{BASE_URL}?foo=bar" }
 
     let(:response) do
-      stub(code: 500, message: "Message", body: "Response Body", parsed_response: stub).as_null_object
+      double(code: 500, message: "Message", body: "Response Body", parsed_response: double).as_null_object
     end
 
     before do
