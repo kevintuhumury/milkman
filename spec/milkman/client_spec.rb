@@ -52,7 +52,7 @@ module Milkman
       context "when both the API key and shared secret are specified" do
 
         it "doesn't raise a NoMilkError" do
-          expect { described_classClient.new(options) }.to_not raise_error NoMilkError
+          expect { described_class.new(options) }.not_to raise_error
         end
 
       end
