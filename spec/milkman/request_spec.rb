@@ -15,7 +15,7 @@ module Milkman
 
     context ".call" do
 
-      before { response.stub(:code).and_return 200 }
+      before { allow(response).to receive(:code).and_return 200 }
 
       it "calls parsed_response" do
         expect_any_instance_of(described_class).to receive(:parsed_response)
@@ -33,7 +33,7 @@ module Milkman
 
       context "when the response is OK (code: 200)" do
 
-        before { response.stub(:code).and_return 200 }
+        before { allow(response).to receive(:code).and_return 200 }
 
         it "parses the HTTParty response" do
           expect(response).to receive(:parsed_response)
@@ -44,7 +44,7 @@ module Milkman
 
       context "when the response isn't OK" do
 
-        before { described_class.stub!(:code).and_return 500 }
+        before { allow(described_class).to receive(:code).and_return 500 }
 
         it "raises an InvalidResponseError" do
           expect { described_class.call(url) }.to raise_error InvalidResponseError
