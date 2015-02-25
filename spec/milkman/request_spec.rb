@@ -10,7 +10,7 @@ module Milkman
     end
 
     before do
-      described_class.stub(:get).and_return response
+      allow(described_class).to receive(:get).and_return response
     end
 
     context ".call" do
@@ -18,12 +18,12 @@ module Milkman
       before { response.stub(:code).and_return 200 }
 
       it "calls parsed_response" do
-        described_class.any_instance.should_receive(:parsed_response)
+        expect_any_instance_of(described_class).to receive(:parsed_response)
         described_class.call url
       end
 
       it "makes a call to the RTM API" do
-        described_class.should_receive(:get).with url, format: :json
+        expect(described_class).to receive(:get).with url, format: :json
         described_class.call url
       end
 
@@ -36,7 +36,7 @@ module Milkman
         before { response.stub(:code).and_return 200 }
 
         it "parses the HTTParty response" do
-          response.should_receive(:parsed_response)
+          expect(response).to receive(:parsed_response)
           described_class.call url
         end
 

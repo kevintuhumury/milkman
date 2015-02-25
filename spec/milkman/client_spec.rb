@@ -13,7 +13,7 @@ module Milkman
         hash = { api_key: "foo", shared_secret: "bar", format: "json", perms: "delete" }
 
         client = described_class.new(options)
-        client.options.should eq hash
+        expect(client.options).to eq hash
       end
 
       context "when the required API key and shared secret aren't specified" do
@@ -62,7 +62,7 @@ module Milkman
     context "#get" do
 
       it "requests a call to the RTM API with the specified method" do
-        Milkman::Request.should_receive(:call).with "http://api.rememberthemilk.com/services/rest/?api_key=foo&shared_secret=bar&perms=delete&format=json&method=method&api_sig=57c35d820267ab89717e291d619860d2"
+        expect(Milkman::Request).to receive(:call).with "http://api.rememberthemilk.com/services/rest/?api_key=foo&shared_secret=bar&perms=delete&format=json&method=method&api_sig=57c35d820267ab89717e291d619860d2"
 
         client = described_class.new(options)
         client.get "method"
