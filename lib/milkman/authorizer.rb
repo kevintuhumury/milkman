@@ -34,7 +34,7 @@ module Milkman
     end
 
     def frob_message_url
-      authorization_url sign(shared_secret, options)
+      authorization_url sign(shared_secret, options.except(:format))
     end
 
     def authorization_url(parameters)
