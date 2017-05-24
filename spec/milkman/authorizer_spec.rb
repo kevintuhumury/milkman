@@ -8,11 +8,14 @@ module Milkman
     end
 
     context "#initialize" do
+      let(:client) { described_class.new(options) }
+
+      it "knows its shared secret" do
+        expect(client.shared_secret).to eq "<shared_secret>"
+      end
 
       it "saves a references to the specified options" do
-        hash = { api_key: "<api_key>", shared_secret: "<shared_secret>", format: "json", perms: "delete" }
-
-        client = described_class.new(options)
+        hash = { api_key: "<api_key>", format: "json", perms: "delete" }
         expect(client.options).to eq hash
       end
 

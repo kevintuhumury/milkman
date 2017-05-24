@@ -3,10 +3,11 @@ module Milkman
 
     include Utility
 
-    attr_accessor :options
+    attr_accessor :options, :shared_secret
 
     def initialize(attributes)
-      @options = attributes.merge! default_options
+      @shared_secret = attributes.delete(:shared_secret)
+      @options       = attributes.merge! default_options
     end
 
     def self.authorize(options)
@@ -15,7 +16,7 @@ module Milkman
 
     def authorize
       puts I18n.t("milkman.authorization.frob_message", url: frob_message_url)
-      puts I18n.t("milkman.authorization.auth_token_message", username: response["rsp"]["auth"]["user"]["username"], api_key: options[:api_key], shared_secret: options[:shared_secret], auth_token: response["rsp"]["auth"]["token"])
+      puts I18n.t("milkman.authorization.auth_token_message", username: response["rsp"]["auth"]["user"]["username"], api_key: options[:api_key], shared_secret: shared_secret, auth_token: response["rsp"]["auth"]["token"])
     end
 
     private
@@ -25,7 +26,7 @@ module Milkman
     end
 
     def signed_options
-      sign options[:shared_secret], options.merge!(method: "rtm.auth.getToken", frob: frob)
+      sign shared_secret, options.merge!(method: "rtm.auth.getToken", frob: frob)
     end
 
     def frob
@@ -33,7 +34,7 @@ module Milkman
     end
 
     def frob_message_url
-      authorization_url sign(options[:shared_secret], options)
+      authorization_url sign(shared_secret, options)
     end
 
     def authorization_url(parameters)
