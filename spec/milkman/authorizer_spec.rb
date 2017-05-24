@@ -15,7 +15,7 @@ module Milkman
       end
 
       it "saves a references to the specified options" do
-        hash = { api_key: "<api_key>", format: "json", perms: "delete" }
+        hash = { api_key: "<api_key>", format: "json", perms: "delete", v: 2 }
         expect(client.options).to eq hash
       end
 
