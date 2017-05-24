@@ -15,7 +15,7 @@ module Milkman
       end
 
       it "saves a references to the specified options" do
-        hash = { api_key: "foo", format: "json", perms: "delete" }
+        hash = { api_key: "foo", format: "json", perms: "delete", v: 2 }
 
         expect(client.options).to eq hash
       end
@@ -66,7 +66,7 @@ module Milkman
     context "#get" do
 
       it "requests a call to the RTM API with the specified method" do
-        expect(Milkman::Request).to receive(:call).with "http://api.rememberthemilk.com/services/rest/?api_key=foo&perms=delete&format=json&method=method&api_sig=7c861e6ffbe0ce450cdfcc68f7447753"
+        expect(Milkman::Request).to receive(:call).with "http://api.rememberthemilk.com/services/rest/?api_key=foo&perms=delete&format=json&v=2&method=method&api_sig=095631780dd0429ec5a8389f89b97cb3"
 
         client = described_class.new(options)
         client.get "method"

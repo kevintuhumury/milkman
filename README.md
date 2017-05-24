@@ -33,12 +33,12 @@ You can retrieve an API key and shared secret from the official Remember The Mil
 ### Run the `milkman` executable
 
     milkman authorize API_KEY SHARED_SECRET
-    
+
 Something like the following will be shown to you:
 
     Copy the URL below and follow the steps on Remember The Milk (RTM) to authorize Milkman:
 
-    http://www.rememberthemilk.com/services/auth/?api_key=API_KEY&shared_secret=SHARED_SECRET&perms=read&format=json&api_sig=08da0d11ef239318027364133ac1a644
+    https://www.rememberthemilk.com/services/auth/?api_key=API_KEY&perms=read&format=json&v=2&api_sig=08da0d11ef239318027364133ac1a644
 
     Once you've authorized Milkman, you'll receive a hash called 'frob' from Remember The Milk. The page from Remember The Milk will list something like the following: 'No callback URL specified for this API key. Your frob value is YOUR_FROB'. Copy and paste that YOUR_FROB value below and press <enter>:
 
@@ -54,6 +54,10 @@ Copy the URL (as requested) and paste it in your browser. Next copy the frob fro
 
 Take note of the variables and save them, since you'll need them to use Milkman.
 
+## Remember The Milk API version
+
+From Milkman version 0.0.5 and onwards Milkman will use RTM API version 2 by default.
+
 ## Using Milkman
 
 Using Milkman is easy. All you need to know is that all calls go through the `Milkman::Client` class. Specifically it's `get` method. Let's say you want to retrieve all your tasks from RTM. Well, there's a method for that and it's called: `rtm.tasks.getList`. More information about that method can be found [here](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm).
@@ -65,7 +69,7 @@ In order to retrieve the above information, we'll need an instance of the Milkma
 ```ruby
 client = Milkman::Client.new api_key: API_KEY, shared_secret: SHARED_SECRET, auth_token: AUTH_TOKEN
 ```
-	
+
 That's it.
 
 ### Milking the cow, err... Calling our method
@@ -75,7 +79,7 @@ Now, let's call our `rtm.tasks.getList` method:
 ```ruby
 client.get "rtm.tasks.getList"
 ```
-	
+
 The above call will return every task you have. As can be seen on the [API page](https://www.rememberthemilk.com/services/api/methods/rtm.tasks.getList.rtm) of the above method, there are a couple of optional parameters, like `list_id`, `filter` and `last_sync`. These can be used as follows:
 
 ```ruby

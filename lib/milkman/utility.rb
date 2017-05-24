@@ -20,7 +20,7 @@ module Milkman
     end
 
     def default_options
-      { perms: "delete", format: "json" }
+      { perms: "delete", format: "json", v: API_VERSION }
     end
 
   end
